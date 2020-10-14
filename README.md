@@ -1,7 +1,7 @@
 # Editor
 Aplicacion con herramientas de video
 
- \\\\\\\\\FUNCIONALIDADES//////////
+ \\\\\\\\\FUNCIONALIDADES///////
  
 1-Cambiar resolucion de video.
 
