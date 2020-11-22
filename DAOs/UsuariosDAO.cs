@@ -1,4 +1,6 @@
 ﻿using Editor.Modelo;
+using Newtonsoft.Json;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,21 +20,20 @@ namespace Editor.DAOs
         }
         public static bool existeUsuario(string usuario, string password)
         {
-            //hardodear usuarios
-            //siempre true
-            //abro archivo de texto con usuarios creado
-            var objUsuario = listaUsuario.Find(usuarioObj => usuarioObj.usuario == usuario && usuarioObj.password == password);
-                if (objUsuario == null)
-                {
-                    return false;
-
-                }else{
-                    return true;
-                }
-
-                //Lamado API
-            }
+      
+          var client = new RestClient("https://localhost:44329/");
+         
+            var request = new RestRequest("/" + usuario + "/" + password + "/MasSeguroImposible");
+            request.RequestFormat = DataFormat.Json;
+            var response = client.Get(request).Content;
+           var estado= JsonConvert.DeserializeObject<dynamic>(response);
+            bool mybool = System.Convert.ToBoolean(estado);
+            return mybool;
             
+             
+            }
+      
+      
         }    
     }
 

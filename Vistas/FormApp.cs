@@ -168,8 +168,8 @@ namespace Editor
         //CERRAR SESION
         private void ToolStripMenuItemCerrarSesion_Click(object sender, EventArgs e)
         {
-            formAnterior.Show();
             this.Close();
+            
         }
 
         //CHECK PARA QUE NO SE SUPERPONGAN 2 FORM
